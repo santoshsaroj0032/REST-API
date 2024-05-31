@@ -39,6 +39,8 @@ app.route('/api/users/:id' ).get((req , res)=>{
 
 
 app.post("/api/users",(req,res) =>{
+    const body=req.body;
+    console.log("Body", body);
     return res.json({status:"pending"});
 });
 

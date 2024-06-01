@@ -1,9 +1,42 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json");
 const fs = require("fs");
+const mongoose = require("mongoose");
+
+
 
 const app = express();
 const PORT = 7000;
+
+mongoose.connect('mongodb+srv://santoshsaroj0032:dTlE2ZNxnWhQPALr@cluster0.mkmko1i.mongodb.net/RESTAPI', { useNewUrlParser: true })
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err )=> console.log("Mongo Error" , err));
+
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    jobtitle: {
+        type: String,
+    },
+    gender: {
+        type: String,
+    },
+
+});
+
+const User = mongoose.model("user", userSchema);
+
 
 // Middleware - Plugin
 app.use(express.urlencoded({ extended: false }));

@@ -10,7 +10,7 @@ const PORT = 7000;
 
 mongoose.connect('mongodb+srv://santoshsaroj0032:dTlE2ZNxnWhQPALr@cluster0.mkmko1i.mongodb.net/RESTAPI', { useNewUrlParser: true })
     .then(() => console.log("MongoDB Connected"))
-    .catch((err )=> console.log("Mongo Error" , err));
+    .catch((err )=> console.log("Mongo Error" , err)); 
 
 const userSchema = new mongoose.Schema({
     firstName: {
